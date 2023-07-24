@@ -1,8 +1,10 @@
+import middlewareLibros from '../middleware/middlewareLibros.js';
 import { Router } from 'express';
 const appLibros = Router();
 
-appLibros.get("/", (req, res) => {
-    res.send(JSON.stringify(req.body));
-})
+appLibros.post("/", middlewareLibros, (req, res) => {
+    console.log(req.body.guardar)
+    res.send("ddd")
+});
 
 export default appLibros;
