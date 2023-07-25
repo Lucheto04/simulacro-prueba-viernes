@@ -4,7 +4,7 @@ const appLibros = Router();
 
 appLibros.post("/", middlewareLibros, (req, res) => {
     console.log(req.body.guardar)
-    res.send("ddd")
+    res.send(req.body)
 });
 
 export default appLibros;

@@ -28,15 +28,11 @@ export class storageLibros {
     titulo: string;
 
     @Expose({ name: 'año-de-publicacion' })
-    @Transform(({ value }) => {
-        if (/^[0-9]|undefined+$/.test(value)) return (value) ? value : 1; else throw { status: 406, message: "El formato del parametro año - de - publicacion no es correcto" };
-    }, { toClassOnly: true })
+    @Transform(({ value }) => { if (/^[0-9]|undefined+$/.test(value)) return (value) ? value : 1; else throw { status: 406, message: "El formato del parametro año - de - publicacion no es correcto" }; }, { toClassOnly: true })
     anio_publicacion: number;
 
     @Expose({ name: 'codigo-biblioteca-isbn' })
-    @Transform(({ value }) => {
-        if (/^[0-9][-]|undefined+$/.test(value)) return value; else throw { status: 406, message: "El parametro codigo-biblioteca-isbn es obligatorio y el formato no es correcto" };
-    }, { toClassOnly: true })
+    @Transform(({ value }) => { if (/^[0-9]|[-]+$/.test(value)) return value; else throw { status: 406, message: "El parametro codigo-biblioteca-isbn es obligatorio y el formato no es correcto" }; }, { toClassOnly: true })
     isbn: string;
 
     @Expose({ name: 'numero-paginas' })

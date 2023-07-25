@@ -63,22 +63,18 @@ __decorate([
 ], storageLibros.prototype, "titulo", void 0);
 __decorate([
     Expose({ name: 'año-de-publicacion' }),
-    Transform(({ value }) => {
-        if (/^[0-9]|undefined+$/.test(value))
-            return (value) ? value : 1;
-        else
-            throw { status: 406, message: "El formato del parametro año - de - publicacion no es correcto" };
-    }, { toClassOnly: true }),
+    Transform(({ value }) => { if (/^[0-9]|undefined+$/.test(value))
+        return (value) ? value : 1;
+    else
+        throw { status: 406, message: "El formato del parametro año - de - publicacion no es correcto" }; }, { toClassOnly: true }),
     __metadata("design:type", Number)
 ], storageLibros.prototype, "anio_publicacion", void 0);
 __decorate([
     Expose({ name: 'codigo-biblioteca-isbn' }),
-    Transform(({ value }) => {
-        if (/^[0-9][-]|undefined+$/.test(value))
-            return value;
-        else
-            throw { status: 406, message: "El parametro codigo-biblioteca-isbn es obligatorio y el formato no es correcto" };
-    }, { toClassOnly: true }),
+    Transform(({ value }) => { if (/^[0-9]|[-]+$/.test(value))
+        return value;
+    else
+        throw { status: 406, message: "El parametro codigo-biblioteca-isbn es obligatorio y el formato no es correcto" }; }, { toClassOnly: true }),
     __metadata("design:type", String)
 ], storageLibros.prototype, "isbn", void 0);
 __decorate([
